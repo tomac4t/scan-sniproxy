@@ -3,6 +3,7 @@
 Usage：
 ```bash
 $ python scan-sniproxy.py --help
+ -i, --ip                  IP range to scan, will override -f argument
  -f, --file <file>         Import IP ranges from file, addr.txt by default
  -o, --out <file>          Filename to save, result-<datetime>.txt by default
  -m, --maxthreads [number] number of scanner threads, 1000 threads by default
