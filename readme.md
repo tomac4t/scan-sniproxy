@@ -10,14 +10,21 @@ $ python scan-sniproxy.py --help
  -t, --timeout     connection timeout (default: 5)
  -n, --hostname    set a hostname/servername (default: "cdnjs.cloudflare.com")
  -h, --help        get help
-$ python scan-sniproxy.py
-Scanning 768 IPs
-Discovered 106.14.176.3
-Discovered 211.72.35.110
-Discovered 211.72.35.119
-Finish. Scanned 768 IPs, 3 IPs matched hostname.
 ```
-
+Example:
+```bash
+$ python scan-sniproxy.py -f addr.txt -o /dev/null
+Scanning 257 IPs
+Discovered 211.72.35.119
+Discovered 211.72.35.110
+Discovered 106.14.176.3
+Finish. Scanned 257 IPs, 3 IPs matched hostname.
+Save to /dev/null
+$ python scan-sniproxy.py -i 1.0.0.1 -n www.cloudflare.com
+Scanning 1 IPs
+Discovered 1.0.0.1
+Finish. Scanned 1 IPs, 1 IPs matched hostname.
+```
 Example `addr.txt`: 
 ```
 1.0.0.1-1.1.1.1
