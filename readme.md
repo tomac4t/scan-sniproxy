@@ -3,13 +3,13 @@
 Usage：
 ```bash
 $ python scan-sniproxy.py --help
- -i, --ip                  IP range to scan, will override -f argument
- -f, --file <file>         Import IP ranges from file, addr.txt by default
- -o, --out <file>          Filename to save, result-<datetime>.txt by default
- -m, --maxthreads [number] number of scanner threads, 1000 threads by default
- -t, --timeout [float]     connection timeout, 5 seconds by default
- -n, --hostname            Set a hostname/servername, "cdnjs.cloudflare.com" by default
- -h, --help                Get help for commands
+ -f, --file        import IP ranges from file (default: addr.txt)
+ -i, --ip          IP range to scan, will override -f argument (optional)
+ -o, --out         filename to save, 0 results won't write (optional)
+ -m, --maxthreads  number of scanner threads (default: 1000)
+ -t, --timeout     connection timeout (default: 5)
+ -n, --hostname    set a hostname/servername (default: "cdnjs.cloudflare.com")
+ -h, --help        get help
 $ python scan-sniproxy.py
 Scanning 768 IPs
 Discovered 106.14.176.3
