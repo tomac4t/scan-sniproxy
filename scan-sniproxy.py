@@ -52,7 +52,7 @@ def gen_ip(a):
     #ipQueue.qsize()
     return ipQueue
 
-def tlsprobe(ip, timeout, hostname) :
+def tlsprobe(ip, hostname, timeout) :
     c = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     c.verify_mode = ssl.CERT_REQUIRED
     c.check_hostname = True
@@ -78,7 +78,7 @@ def worker(t, h):
     except:
         pass
     else:
-        r = tlsprobe(ip, t, h)
+        r = tlsprobe(ip, h, t)
         times += 1
         if r == True:
             # TODO
@@ -139,7 +139,7 @@ def main():
         else:
             txt = file_obj.read()
         ipQueue = gen_ip(txt)
-        print("Scanning " + str(ipQueue.qsize()) + " IPs")
+        sys.stdout.write("Scanning " + str(ipQueue.qsize()) + " IPs\n")
     finally:
         file_obj.close()
 
@@ -168,14 +168,14 @@ def main():
                 f.writelines(v+"\n")
         finally:
             f.close()
-            print("Save to " + os.path.abspath(output), file=sys.stdout)
+            sys.stdout.write("Save to " + os.path.abspath(output) + "\n")
         sys.exit(0)
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print('KeyboardInterrupt', file=sys.stderr)
+        sys.stderr.write("KeyboardInterrupt\n")
         try:
             sys.exit(1)
         except SystemExit:
