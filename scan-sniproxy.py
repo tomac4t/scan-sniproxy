@@ -153,8 +153,11 @@ def main():
     concurrent.futures.wait(all_task)
     executor.shutdown(wait=True)
 
+def save(o):
     # TODO
     print("Finish. " + "Scanned "+ str(times) +" IPs, " + str(len(result_ips)) +" IPs matched hostname.")
+
+    output = o
 
     if len(result_ips) == 0:
         sys.exit(0)
@@ -169,14 +172,16 @@ def main():
         finally:
             f.close()
             sys.stdout.write("Save to " + os.path.abspath(output) + "\n")
-        sys.exit(0)
 
 if __name__ == "__main__":
     try:
         main()
+        save(output)
+        sys.exit(0)
     except KeyboardInterrupt:
         sys.stderr.write("KeyboardInterrupt\n")
         try:
+            save(output)
             sys.exit(1)
         except SystemExit:
             os._exit(1)
