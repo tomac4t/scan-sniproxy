@@ -6,7 +6,7 @@ $ python scan-sniproxy.py --help
  -f, --file        import IP ranges from file (default: addr.txt)
  -i, --ip          IP range to scan, will override -f argument (optional)
  -o, --out         filename to save, 0 results won't write (optional)
- -m, --maxthreads  number of scanner threads (default: 1000)
+ -m, --maxthreads  number of scanner threads (default: 200)
  -t, --timeout     connection timeout (default: 5)
  -n, --hostname    set a hostname/servername (default: "cdnjs.cloudflare.com")
  -h, --help        get help
@@ -33,5 +33,7 @@ Example `addr.txt`:
 ```
 
 To avoid scanning a lot of CDN IPs, consider using a servername whois website without behind CDN. 
+
+Wiki: [https://github.com/tomac4t/scan-sniproxy/wiki](https://github.com/tomac4t/scan-sniproxy/wiki)
 
 Blog of the origin author: [garnote.top](http://garnote.top)

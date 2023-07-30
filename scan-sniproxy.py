@@ -12,7 +12,7 @@ from netaddr import IPNetwork, IPRange
 filename = "addr.txt"
 output = ""
 timeout = 5
-maxthreads = 1000
+maxthreads = 200
 hostname = "cdnjs.cloudflare.com"
 result_ips = []
 i = ""
